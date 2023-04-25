@@ -4,7 +4,7 @@ import java.net.URI;
 class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
-    ArrayList<String> list = new ArrayList<>();
+    // ArrayList<String> list = new ArrayList<>();
     int num = 0;
 
     public String handleRequest(URI url) {
