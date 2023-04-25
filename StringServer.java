@@ -21,7 +21,7 @@ class Handler implements URLHandler {
             if(parameters[0].equals("s")){
                 list.add(parameters[1]);
             }
-            return String.format(parameters[1] + "added");
+            return String.format(parameters[1] + "\n");
             // num += 1;
             // return String.format("Number incremented!");
         } else {
