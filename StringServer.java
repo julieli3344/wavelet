@@ -18,7 +18,7 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     num += Integer.parseInt(parameters[1]);
-                    return String.format(parameters[1]);
+                    return String.format("%s", parameters[1]);
                 }
             }
             return "404 Not Found!";
