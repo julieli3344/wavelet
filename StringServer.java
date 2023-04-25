@@ -5,23 +5,24 @@ import java.util.ArrayList;
 class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
-    ArrayList<String> list = new ArrayList<>();
+    ArrayList<String> lists = new ArrayList<>();
     int num = 0;
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            String s = "";
-            for(String ss : list){
-                s = ss + "\n";
+            String l = "";
+            for(String list : lists){
+                l = list + "\n";
             }
-            return "Strings are: \n" + s;
+            return "Strings are: \n" + l;
             // return String.format("Julie Li: %d", num);
         } else if (url.getPath().equals("/add-message")) {
             String[] parameters = url.getQuery().split("=");
             if(parameters[0].equals("s")){
-                list.add(parameters[1]);
+                lists.add(parameters[1]);
+                // lists += "\n" + parameters[1];
             }
-            return String.format(parameters[1] + "\n");
+            return String.format(parameters[1]);
             // num += 1;
             // return String.format("Number incremented!");
         } else {
