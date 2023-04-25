@@ -21,7 +21,7 @@ class Handler implements URLHandler {
                     num += Integer.parseInt(parameters[1]);
                     // list.add(parameters[1]);
                     return "Strings are: \n" + parameters[1];
-                    return String.format("%s and %d", parameters[1], num);
+                    // return String.format("%s and %d", parameters[1], num);
                 }
             }
             return "404 Not Found!";
