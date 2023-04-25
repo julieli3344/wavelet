@@ -9,7 +9,6 @@ class Handler implements URLHandler {
     // various requests.
     String message = "";
     ArrayList<String> lists = new ArrayList<>();
-    // Set<String> messages = new HashSet<>(); // Keep track of unique messages
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/add-message")) {
@@ -18,7 +17,7 @@ class Handler implements URLHandler {
                 String newMessage = parameters[1];
                 if (!message.contains(newMessage)) { // Check if message already exists
                     lists.add(newMessage);
-                    message += "\n" + newMessage; // Append the new message to the existing string with a new line character
+                    message +=  newMessage + "\n" ; // Append the new message to the existing string with a new line character
                 }
             }
             return message;
