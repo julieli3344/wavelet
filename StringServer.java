@@ -4,6 +4,7 @@ import java.net.URI;
 class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
+    ArrayList<String> list = new ArrayList<>();
     int num = 0;
 
     public String handleRequest(URI url) {
@@ -18,6 +19,8 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     num += Integer.parseInt(parameters[1]);
+                    // list.add(parameters[1]);
+                    return "Strings are: \n" + parameters[1];
                     return String.format("%s and %d", parameters[1], num);
                 }
             }
