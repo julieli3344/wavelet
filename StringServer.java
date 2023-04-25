@@ -10,26 +10,37 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("Julie Li: %d", num);
-        } else if (url.getPath().equals("/increment")) {
-            num += 1;
-            return String.format("Number incremented!");
-        } else {
-            System.out.println("Path: " + url.getPath());
-            if (url.getPath().contains("/add-message")) {
-                String[] parameters = url.getQuery().split("=");
-                if (parameters[0].equals("s")) {
-                    num += Integer.parseInt(parameters[1]);
-                    // list.add(parameters[1]);
-                    String ii = "";
-                    for(String i : list){
-                        ii = i + "\n";
-                    }
-                    return "Strings are: \n" + ii;
-                    // return String.format("%s and %d", parameters[1], num);
-                }
+            String s = "";
+            for(String ss : list){
+                s = ss + "\n";
             }
+            return "Strings are: \n" + s;
+            // return String.format("Julie Li: %d", num);
+        } else if (url.getPath().equals("/add-message")) {
+            String[] parameters = url.getQuery().split("=");
+            if(parameters[0].equals("s")){
+                list.add(parameters[1]);
+            }
+            return String.format(parameters[1] + "added");
+            // num += 1;
+            // return String.format("Number incremented!");
+        } else {
             return "404 Not Found!";
+            // System.out.println("Path: " + url.getPath());
+            // if (url.getPath().contains("/add-message")) {
+            //     String[] parameters = url.getQuery().split("=");
+            //     if (parameters[0].equals("s")) {
+            //         num += Integer.parseInt(parameters[1]);
+            //         // list.add(parameters[1]);
+            //         String ii = "";
+            //         for(String i : list){
+            //             ii = i + "\n";
+            //         }
+            //         return "Strings are: \n" + ii;
+            //         // return String.format("%s and %d", parameters[1], num);
+            //     }
+            // }
+            
         }
     }
 }
